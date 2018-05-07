@@ -36,6 +36,7 @@ class ApiRestaurant(models.Model):
 
 class WebMusic(models.Model):
     # 웹(멜론)에서 받아온 노래정보 저장 테이블
+    rank = models.CharField(max_length=10)
     title = models.TextField()
     singer = models.CharField(max_length=50)
     save_at = models.DateTimeField(auto_now_add=True)
