@@ -37,19 +37,20 @@ class ApiRestaurant(models.Model):
 class WebMusic(models.Model):
     # 웹(멜론)에서 받아온 노래정보 저장 테이블
     title = models.TextField()
+    singer = models.CharField(max_length=50)
     save_at = models.DateTimeField(auto_now_add=True)
     send_at = models.DateTimeField(null=True)
     
 
 class WebNews(models.Model):
     # 웹(네이버 뉴스)에서 받아온 뉴스 저장 테이블
-    content = models.TextField()
+    title = models.TextField()
     save_at = models.DateTimeField(auto_now_add=True)
     send_at = models.DateTimeField(null=True)
     
     
 class WebWebtoon(models.Model):
     # 웹(네이버 웹툰)에서 받아온 웹툰 정보 저장 테이블
-    content = models.TextField()
+    title = models.TextField()
     save_at = models.DateTimeField(auto_now_add=True)
     send_at = models.DateTimeField(null=True)
