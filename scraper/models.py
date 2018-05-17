@@ -57,3 +57,12 @@ class WebDust(models.Model):
     level = models.SmallIntegerField() # 미세먼지 정도
     save_at = models.DateTimeField(auto_now_add=True)
     send_at = models.DateTimeField(null=True)
+
+
+class NaverSearch(models.Model):
+    # 네이버 블로그 검색 api로 검색 결과
+    keyword = models.CharField(max_length=100) # 블로그 검색어
+    title = models.TextField() # 블로그 검색 결과 글 제목
+    level = models.TextField() # 블로그 검색 결과 글 링크 주소
+    save_at = models.DateTimeField(auto_now_add=True)
+    send_at = models.DateTimeField(null=True)
