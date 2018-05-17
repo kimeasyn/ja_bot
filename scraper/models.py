@@ -13,20 +13,6 @@ class ApiWeather(models.Model):
     send_at = models.DateTimeField(null=True)  # 발송시각, 저장후 발송전 데이터가 없을 수 있으므로 null 허용 옵션 추가
 
 
-class ApiMetro(models.Model):
-    # API에서 받아온 지하철정보 저장 테이블
-    content = models.TextField()   # data, 
-    save_at = models.DateTimeField(auto_now_add=True)
-    send_at = models.DateTimeField(null=True)
-
-
-class ApiBus(models.Model):
-    # API에서 받아온 버스정보 저장 테이블
-    content = models.TextField()
-    save_at = models.DateTimeField(auto_now_add=True)
-    send_at = models.DateTimeField(null=True)
-
-
 class ApiRestaurant(models.Model):
     # API에서 받아온 맛집정보 저장 테이블
     content = models.TextField()
@@ -53,5 +39,13 @@ class WebNews(models.Model):
 class WebWebtoon(models.Model):
     # 웹(네이버 웹툰)에서 받아온 웹툰 정보 저장 테이블
     title = models.TextField()
+    save_at = models.DateTimeField(auto_now_add=True)
+    send_at = models.DateTimeField(null=True)
+
+
+class WebStock(models.Model):
+    # 네이버에서 네이버 주식 저장
+    company = models.CharField(max_length=50)
+    price = models.IntegerField()
     save_at = models.DateTimeField(auto_now_add=True)
     send_at = models.DateTimeField(null=True)
