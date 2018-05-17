@@ -49,3 +49,11 @@ class WebStock(models.Model):
     price = models.IntegerField()
     save_at = models.DateTimeField(auto_now_add=True)
     send_at = models.DateTimeField(null=True)
+
+
+class WebDust(models.Model):
+    # 미세먼지 정보 저장
+    title = models.CharField(max_length=50) # 미세먼지 기준 정보(좋음/나쁨/보통)
+    level = models.SmallIntegerField() # 미세먼지 정도
+    save_at = models.DateTimeField(auto_now_add=True)
+    send_at = models.DateTimeField(null=True)
