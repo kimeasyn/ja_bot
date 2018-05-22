@@ -38,15 +38,15 @@ def run(args='강남역 맛집'):
 
         for item in items:
             title = item['title']  # 결과 데이터 중 블로그 제목
-            title = title.split('</b>')[1]
-            # 결과 데이터 블로그 제목에서 <b>검색어</br>(굵은 글씨 강조) 제거 후 나머지만
+            title = title.replace('</b>', '').replace('<b>', '')
+            # 결과 데이터 블로그 제목에서 <b></br>(굵은 글씨 강조) 제거
             link = item['link']
             # 결과 데이터 중 해당 글 링크
             link = link.replace("'", "")
             # 결과 글 링크에서 작은 따옴표(') 제거
 
             NaverSearch.objects.create(
-                keyword=keyword,
+                keyword=search_keyword,
                 title=title,
                 link=link
             )  # DB에 저장
