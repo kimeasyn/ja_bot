@@ -21,9 +21,10 @@ def run():
                                   save_at__day=today['day']).first()
     text = """
 ===오늘의 미세먼지===
-구분:%s \n
-레벨:%s \n
-    """ % (dust.title, dust.level)
+상태:%s \n
+미세먼지(PM 2.5):%s \n
+초미세먼지(PM 10):%s \n
+    """ % (dust.status, dust.dust_level, dust.micro_dust_level)
     # %s 대신에 미세먼지 구분(문자), 레벨(숫자) 삽입
 
     for id in chat_id:
