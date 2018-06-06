@@ -2,7 +2,7 @@ import telegram
 from ja_bot import settings
 import os
 import json
-from scraper.models import WebDust # 크롤링 한 미세먼지 정보 모델(db) import
+from scraper.models import WebDust  # 크롤링 한 미세먼지 정보 모델(db) import
 from .common import get_today_date  # 오늘 날짜 생성 및 리턴 함수 import
 
 
@@ -16,9 +16,7 @@ def run():
     bot = telegram.Bot(token=key)  # 텔레그램 봇 토큰 키값으로 봇 인스턴스 생성
 
     today = get_today_date()  # 오늘 날짜의 미세먼지 데이터 select
-    dust = WebDust.objects.filter(save_at__year=today['year'],
-                                  save_at__month=today['month'],
-                                  save_at__day=today['day']).first()
+    dust = WebDust.objects.order_by('-save_at').first()
     text = """
 ===오늘의 미세먼지===
 상태:%s \n
